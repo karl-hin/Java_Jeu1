@@ -5,17 +5,31 @@ import java.util.Scanner;
 public class Menu {
 	public void execute() {
 		String nomJoueur1;
-		String joueur1Guerrier1;
 		int typeJoueur1;
 		int exitJoueur;
+		int playGamer;
 
 		Scanner clavier = new Scanner(System.in);
-		System.out.print("Choisissez un type de personnage\n" + "Taper 1 pour guerrier\n" + "Taper 2 pour magicien\n"
-				+ "Taper 3 si vous souhaiter quitter le jeu\n" + "Votre choix: ");
+		System.out.print("Taper 0 pour lancer le jeu\n" + "Sinon\n" + "Choisissez un type de personnage\n"
+				+ "Taper 1 pour guerrier\n" + "Taper 2 pour magicien\n" + "Taper 3 si vous souhaiter quitter le jeu\n"
+				+ "Votre choix: ");
 		typeJoueur1 = clavier.nextInt();
 		clavier.nextLine();
 
 		switch (typeJoueur1) {
+
+		case 0:
+
+			System.out.print("Prêt?\n" + "Tapez 0 pour oui\n" + "Tapez 1 pour non");
+			playGamer = clavier.nextInt();
+			while (playGamer != 0) {
+				System.out.print("Prêt?\n" + "Tapez 0 pour oui\n" + "Tapez 1 pour non");
+				playGamer = clavier.nextInt();
+				clavier.nextLine();
+			}
+			System.out.print("Combattez!");
+			break;
+
 		case 1:
 
 			System.out.print("Veuillez saisir le nom de votre personnage : ");
@@ -72,5 +86,6 @@ public class Menu {
 
 			clavier.close();
 		}
+
 	}
 }
