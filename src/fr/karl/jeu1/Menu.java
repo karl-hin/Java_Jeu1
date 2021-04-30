@@ -30,13 +30,21 @@ public class Menu {
 			Plateau gamer = new Plateau();
 			LancerDes lancer = new LancerDes();
 			// System.out.print("Nombre de case: " + gamer.toString());
-			int resultDe;
-			int positionJoueur;
-			resultDe = lancer.lancerDes();
+			
+			int positionJoueur;			
 			positionJoueur = gamer.getIndex();
 			System.out.println("Vous commencez à la case: " + positionJoueur);
-			System.out.println("Lancé de dé: " + resultDe);
-			System.out.println("Vous êtes à la case " + (positionJoueur + resultDe) + "/64");
+			while (positionJoueur < 64) {
+				System.out.println("C'est à votre tour\n" + "Appuyer sur un chiffre pour jeter le dé ");
+				playGamer = clavier.nextInt();
+				clavier.nextLine();
+				int resultDe;
+				resultDe = lancer.lancerDes();
+				System.out.println("Lancé de dé: " + resultDe);
+				positionJoueur = positionJoueur + resultDe;
+				System.out.println("Vous êtes à la case " + (positionJoueur) + "/64");
+			}
+			System.out.println("Vous avez gagné!");
 
 			break;
 
