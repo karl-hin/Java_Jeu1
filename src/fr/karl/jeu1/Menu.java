@@ -20,14 +20,17 @@ public class Menu {
 
 		case 0:
 
-			System.out.print("Prêt?\n" + "Tapez 0 pour oui\n" + "Tapez 1 pour non");
+			System.out.print("Prêt?\n" + "Tapez 0 pour oui\n" + "Tapez 1 pour non\n" + "Votre choix: ");
 			playGamer = clavier.nextInt();
 			while (playGamer != 0) {
 				System.out.print("Prêt?\n" + "Tapez 0 pour oui\n" + "Tapez 1 pour non");
 				playGamer = clavier.nextInt();
 				clavier.nextLine();
 			}
-			System.out.print("Combattez!");
+			Plateau gamer = new Plateau();
+			//System.out.print("Nombre de case: " + gamer.toString());
+			System.out.print("Vous commencez à la case: " + gamer.getI());
+			
 			break;
 
 		case 1:
