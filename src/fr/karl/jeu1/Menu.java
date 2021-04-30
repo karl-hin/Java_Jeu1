@@ -28,9 +28,16 @@ public class Menu {
 				clavier.nextLine();
 			}
 			Plateau gamer = new Plateau();
-			//System.out.print("Nombre de case: " + gamer.toString());
-			System.out.print("Vous commencez à la case: " + gamer.getI());
-			
+			LancerDes lancer = new LancerDes();
+			// System.out.print("Nombre de case: " + gamer.toString());
+			int resultDe;
+			int positionJoueur;
+			resultDe = lancer.lancerDes();
+			positionJoueur = gamer.getIndex();
+			System.out.println("Vous commencez à la case: " + positionJoueur);
+			System.out.println("Lancé de dé: " + resultDe);
+			System.out.println("Vous êtes à la case " + (positionJoueur + resultDe) + "/64");
+
 			break;
 
 		case 1:
