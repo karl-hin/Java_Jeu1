@@ -19,32 +19,44 @@ public class Menu {
 		switch (typeJoueur1) {
 
 		case 0:
-
-			System.out.print("Prêt?\n" + "Tapez 0 pour oui\n" + "Tapez 1 pour non\n" + "Votre choix: ");
-			playGamer = clavier.nextInt();
-			while (playGamer != 0) {
-				System.out.print("Prêt?\n" + "Tapez 0 pour oui\n" + "Tapez 1 pour non");
-				playGamer = clavier.nextInt();
-				clavier.nextLine();
-			}
-			Plateau gamer = new Plateau();
-			LancerDes lancer = new LancerDes();
-			// System.out.print("Nombre de case: " + gamer.toString());
+			int rejouer;
 			
-			int positionJoueur;			
-			positionJoueur = gamer.getIndex();
-			System.out.println("Vous commencez à la case: " + positionJoueur);
-			while (positionJoueur < 64) {
-				System.out.println("C'est à votre tour\n" + "Appuyer sur un chiffre pour jeter le dé ");
+			do { // début de la boucle
+				System.out.print("Prêt?\n" + "Tapez 0 pour oui\n" + "Tapez 1 pour non\n" + "Votre choix: ");
 				playGamer = clavier.nextInt();
-				clavier.nextLine();
-				int resultDe;
-				resultDe = lancer.lancerDes();
-				System.out.println("Lancé de dé: " + resultDe);
-				positionJoueur = positionJoueur + resultDe;
-				System.out.println("Vous êtes à la case " + (positionJoueur) + "/64");
-			}
-			System.out.println("Vous avez gagné!");
+				while (playGamer != 0) {
+					System.out.print("Prêt?\n" + "Tapez 0 pour oui\n" + "Tapez 1 pour non");
+					playGamer = clavier.nextInt();
+					clavier.nextLine();
+				}
+				// Mise en place du jeu
+				Plateau gamer = new Plateau();
+				LancerDes lancer = new LancerDes();
+				// System.out.print("Nombre de case: " + gamer.toString());
+
+				int positionJoueur;
+				positionJoueur = gamer.getIndex();
+				System.out.println("Vous commencez à la case: " + positionJoueur);
+
+				while (positionJoueur < 64) {
+					System.out.println("C'est à votre tour\n" + "Appuyer sur un chiffre pour jeter le dé ");
+					playGamer = clavier.nextInt();
+					clavier.nextLine();
+					int resultDe;
+					resultDe = lancer.lancerDes();
+					System.out.println("Lancé de dé: " + resultDe);
+					positionJoueur = positionJoueur + resultDe;
+					System.out.println("Vous êtes à la case " + (positionJoueur) + "/64");
+				}
+				System.out.println("Vous avez gagné!");
+				do { // pour rejouer
+					System.out.println("Taper 0 pour rejouer\n" + "Taper 1 pour quitter");
+					rejouer = clavier.nextInt();
+					if (rejouer != 0 && rejouer != 1) {
+						System.out.println("Taper 0 pour rejouer\n" + "Taper 1 pour quitter");
+					}
+				} while (rejouer != 0 && rejouer != 1);
+			} while (rejouer == 0);// fin de la boucle
 
 			break;
 
