@@ -1,65 +1,25 @@
 package fr.karl.jeu1;
 
-public class Guerrier {
-	private String Nom;
-	private int Vie;
-	private int Atk;
-	private String Image;
+public class Guerrier extends Personnage {
+
+	private static final int DEFAULT_LIFE = 10;
+	private static final int DEFAULT_ATK = 8;	
 	private String Arme;
 	private String Defense;
 
 	public Guerrier() {
-		Nom = "";
 	}
 
 	public Guerrier(String guerrierNom) {
-		Nom = guerrierNom;
-		Vie = 9;
-		Atk = 7;
-		Arme ="Epée";
+		this(guerrierNom, "", "Epee", null);
 		Defense = "Bouclier";
 	}
 
-	public Guerrier(String guerrierNom, String guerrierImage, int guerrierVie, int guerrierAtk, String guerrierArme,
+	public Guerrier(String guerrierNom, String guerrierImage, String guerrierArme,
 			String guerrierDefense) {
-		Nom = guerrierNom;
-		Image = guerrierImage;
-		Vie = guerrierVie;
-		Atk = guerrierAtk;
+		super(guerrierNom, guerrierImage, DEFAULT_LIFE, DEFAULT_ATK);
 		Arme = guerrierArme;
 		Defense = guerrierDefense;
-	}
-
-	public String getNom() {
-		return Nom;
-	}
-
-	public void setNom(String nom) {
-		Nom = nom;
-	}
-
-	public int getVie() {
-		return Vie;
-	}
-
-	public void setVie(int vie) {
-		Vie = vie;
-	}
-
-	public int getAtk() {
-		return Atk;
-	}
-
-	public void setAtk(int atk) {
-		Atk = atk;
-	}
-
-	public String getImage() {
-		return Image;
-	}
-
-	public void setImage(String image) {
-		Image = image;
 	}
 
 	public String getEpee() {
@@ -80,9 +40,10 @@ public class Guerrier {
 
 	@Override
 	public String toString() {
-		return "Guerrier [Nom=" + Nom + ", Vie=" + Vie + ", Atk=" + Atk + ", Image=" + Image + ", Arme=" + Arme
-				+ ", Defense=" + Defense + "]";
+		return "Guerrier [Arme=" + Arme + ", Defense=" + Defense + "]";
 	}
+
+
 
 
 }

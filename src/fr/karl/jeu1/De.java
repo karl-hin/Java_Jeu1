@@ -1,24 +1,24 @@
 package fr.karl.jeu1;
 
-public class LancerDes {
+public class De {
 	
-	private int De;
+	private int NbDe;
 
-	public LancerDes() {
-		De = 1;
+	public De() {
+		NbDe = 1;
 	}
 	
-	public int getDe() {
-		return De;
+	public int getNbDe() {
+		return NbDe;
 	}
 
-	public void setDe(int de) {
-		De = de;
+	public void setNbDe(int de) {
+		NbDe = de;
 	}
 
 	@Override
 	public String toString() {
-		return "LancerDes [De=" + De + "]";
+		return "LancerDes [NbDe=" + NbDe + "]";
 	}
 
 	public int lancerDes() {

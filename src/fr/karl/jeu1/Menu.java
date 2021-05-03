@@ -18,9 +18,10 @@ public class Menu {
 
 		switch (typeJoueur1) {
 
+		// Jouer au jeu
 		case 0:
 			int rejouer;
-			
+
 			do { // début de la boucle
 				System.out.print("Prêt?\n" + "Tapez 0 pour oui\n" + "Tapez 1 pour non\n" + "Votre choix: ");
 				playGamer = clavier.nextInt();
@@ -31,7 +32,7 @@ public class Menu {
 				}
 				// Mise en place du jeu
 				Plateau gamer = new Plateau();
-				LancerDes lancer = new LancerDes();
+				De lancer = new De();
 				// System.out.print("Nombre de case: " + gamer.toString());
 
 				int positionJoueur;
@@ -59,7 +60,8 @@ public class Menu {
 			} while (rejouer == 0);// fin de la boucle
 
 			break;
-
+		
+		// 
 		case 1:
 
 			System.out.print("Veuillez saisir le nom de votre personnage : ");
@@ -77,7 +79,7 @@ public class Menu {
 			Magicien joueur1Magicien = new Magicien(nomJoueur1);
 			System.out.println("Votre personnage est un magicien, s'appelle " + joueur1Magicien.getNom()
 					+ ", commence avec " + joueur1Magicien.getVie() + " point de vie et " + joueur1Magicien.getAtk()
-					+ " points d'attaque" + joueur1Magicien.toString());
+					+ " points d'attaque, " + joueur1Magicien.toString());
 			break;
 
 		case 3:
