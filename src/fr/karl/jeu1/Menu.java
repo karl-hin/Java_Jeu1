@@ -47,6 +47,20 @@ public class Menu {
 					resultDe = lancer.lancerDes();
 					System.out.println("Lancé de dé: " + resultDe);
 					positionJoueur = positionJoueur + resultDe;
+					// Créer exception au cas où le joueur dépasserai le nombre de case maximum. Ici
+					// le cas où positionJoueur serai 65
+
+					try {
+						if (positionJoueur > 64) {
+							PersonnageHorsPlateauException e =  new PersonnageHorsPlateauException();
+							throw e;
+						}
+					} catch (PersonnageHorsPlateauException error) {
+						System.out.println(error.getMessage());
+						positionJoueur = 64;
+
+					}
+
 					System.out.println("Vous êtes à la case " + (positionJoueur) + "/64");
 				}
 				System.out.println("Vous avez gagné!");
@@ -60,8 +74,8 @@ public class Menu {
 			} while (rejouer == 0);// fin de la boucle
 
 			break;
-		
-		// 
+
+		//
 		case 1:
 
 			System.out.print("Veuillez saisir le nom de votre personnage : ");

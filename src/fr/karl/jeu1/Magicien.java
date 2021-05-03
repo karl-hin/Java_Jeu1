@@ -16,6 +16,7 @@ public class Magicien extends Personnage {
 
 	public Magicien(String magicienNom, String magicienImage, String magicienArme,
 			String magicienDefense) {
+		//super est utilisé pour corrspondre aux paramètres de la classe parnet Personnage
 		super(magicienNom, magicienImage, DEFAULT_LIFE, DEFAULT_ATK);
 		Arme = magicienArme;
 		Defense = magicienDefense;		
