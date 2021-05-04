@@ -4,10 +4,7 @@ import java.util.Scanner;
 
 public class Menu {
 	public void execute() {
-		String nomJoueur1;
-		int typeJoueur1;
-		int exitJoueur;
-		int playGamer;
+		
 
 		Scanner clavier = new Scanner(System.in);
 		System.out.print("Taper 0 pour lancer le jeu\n" + "Sinon\n" + "Choisissez un type de personnage\n"
