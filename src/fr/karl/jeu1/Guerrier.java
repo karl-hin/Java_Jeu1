@@ -4,30 +4,21 @@ public class Guerrier extends Personnage {
 
 	private static final int DEFAULT_LIFE = 10;
 	private static final int DEFAULT_ATK = 8;	
-	private String Arme;
+	private Arme arme;
 	private String Defense;
 
 	public Guerrier() {
 	}
 
 	public Guerrier(String guerrierNom) {
-		this(guerrierNom, "", "Epee", null);
-		Defense = "Bouclier";
+		
 	}
 
-	public Guerrier(String guerrierNom, String guerrierImage, String guerrierArme,
+	public Guerrier(String guerrierNom, String guerrierImage, Arme guerrierarme,
 			String guerrierDefense) {
 		super(guerrierNom, guerrierImage, DEFAULT_LIFE, DEFAULT_ATK);
-		Arme = guerrierArme;
+		arme = guerrierarme;
 		Defense = guerrierDefense;
-	}
-
-	public String getEpee() {
-		return Arme;
-	}
-
-	public void setEpee(String epee) {
-		Arme = epee;
 	}
 
 	public String getBouclier() {
@@ -40,7 +31,7 @@ public class Guerrier extends Personnage {
 
 	@Override
 	public String toString() {
-		return "Guerrier [Nom=" + getNom() + ", Vie=" + getVie() + ", Atk=" + getAtk() + ", Image=" + getImage() +" Arme=" + Arme + ", Defense=" + Defense + "]";
+		return "Guerrier [Nom=" + getNom() + ", Vie=" + getVie() + ", Atk=" + getAtk() + ", Image=" + getImage() +" arme=" + arme + ", Defense=" + Defense + "]";
 	}
 
 
