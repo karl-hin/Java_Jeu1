@@ -40,7 +40,7 @@ public class Magicien extends Personnage {
 
 	@Override
 	public String toString() {
-		return "Magicien [Arme=" + Arme + ", Defense=" + Defense + "]";
+		return "Magicien [Nom=" + getNom() + ", Vie=" + getVie() + ", Atk=" + getAtk() + ", Image=" + getImage() +" Arme=" + Arme + ", Defense=" + Defense + "]";
 	}
 
 

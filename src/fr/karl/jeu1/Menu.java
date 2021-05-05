@@ -1,14 +1,19 @@
 package fr.karl.jeu1;
-
+/*
 import java.util.Scanner;
 
 public class Menu {
 	public void execute() {
-		
+		String nomJoueur1;
+		int typeJoueur1;
+		int exitJoueur;
+		int playGamer;
 
 		Scanner clavier = new Scanner(System.in);
-		System.out.print("Taper 0 pour lancer le jeu\n" + "Sinon\n" + "Choisissez un type de personnage\n"
-				+ "Taper 1 pour guerrier\n" + "Taper 2 pour magicien\n" + "Taper 3 si vous souhaiter quitter le jeu\n"
+		System.out.print("Choisissez un type de personnage\n"
+				+ "Taper 0 pour guerrier\n" + "Taper 1 pour magicien\n"
+				+ "Taper 2 pour lancer le jeu\n" + "Sinon\n"
+				+ "Taper 3 si vous souhaiter quitter le jeu\n"
 				+ "Votre choix: ");
 		typeJoueur1 = clavier.nextInt();
 		clavier.nextLine();
@@ -17,6 +22,28 @@ public class Menu {
 
 		// Jouer au jeu
 		case 0:
+
+			System.out.print("Veuillez saisir le nom de votre personnage : ");
+			nomJoueur1 = clavier.nextLine();
+			Guerrier joueur1Guerrier = new Guerrier(nomJoueur1);
+			System.out.println("Votre personnage est un guerrier, s'appelle " + joueur1Guerrier.getNom()
+					+ ", commence avec " + joueur1Guerrier.getVie() + " point de vie, " + joueur1Guerrier.getAtk()
+					+ " points d'attaque, " + joueur1Guerrier.toString());
+
+			break;
+
+		case 1:
+
+			System.out.print("Veuillez saisir le nom de votre personnage : ");
+			nomJoueur1 = clavier.nextLine();
+			Magicien joueur1Magicien = new Magicien(nomJoueur1);
+			System.out.println("Votre personnage est un magicien, s'appelle " + joueur1Magicien.getNom()
+					+ ", commence avec " + joueur1Magicien.getVie() + " point de vie et " + joueur1Magicien.getAtk()
+					+ " points d'attaque, " + joueur1Magicien.toString());
+
+			break;
+
+		case 2:
 			int rejouer;
 
 			do { // début de la boucle
@@ -49,7 +76,7 @@ public class Menu {
 
 					try {
 						if (positionJoueur > 64) {
-							PersonnageHorsPlateauException e =  new PersonnageHorsPlateauException();
+							PersonnageHorsPlateauException e = new PersonnageHorsPlateauException();
 							throw e;
 						}
 					} catch (PersonnageHorsPlateauException error) {
@@ -70,27 +97,6 @@ public class Menu {
 				} while (rejouer != 0 && rejouer != 1);
 			} while (rejouer == 0);// fin de la boucle
 
-			break;
-
-		//
-		case 1:
-
-			System.out.print("Veuillez saisir le nom de votre personnage : ");
-			nomJoueur1 = clavier.nextLine();
-			Guerrier joueur1Guerrier = new Guerrier(nomJoueur1);
-			System.out.println("Votre personnage est un guerrier, s'appelle " + joueur1Guerrier.getNom()
-					+ ", commence avec " + joueur1Guerrier.getVie() + " point de vie, " + joueur1Guerrier.getAtk()
-					+ " points d'attaque, " + joueur1Guerrier.toString());
-			break;
-
-		case 2:
-
-			System.out.print("Veuillez saisir le nom de votre personnage : ");
-			nomJoueur1 = clavier.nextLine();
-			Magicien joueur1Magicien = new Magicien(nomJoueur1);
-			System.out.println("Votre personnage est un magicien, s'appelle " + joueur1Magicien.getNom()
-					+ ", commence avec " + joueur1Magicien.getVie() + " point de vie et " + joueur1Magicien.getAtk()
-					+ " points d'attaque, " + joueur1Magicien.toString());
 			break;
 
 		case 3:
@@ -132,3 +138,4 @@ public class Menu {
 
 	}
 }
+*/
