@@ -4,11 +4,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-/*		Menu menu1 = new Menu();
-		menu1.execute();
-		
-*/
-		Menubis menu = new Menubis();
+		Menu menu = new Menu();
 		menu.afficherMenuAccueil();
+		
 		}
 }
