@@ -1,6 +1,6 @@
 package fr.karl.jeu1;
 
-public abstract class Personnage {
+public abstract class Personnage extends Case {
 	private String Nom;
 	private int Vie;
 	private int Atk;

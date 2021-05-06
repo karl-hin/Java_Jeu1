@@ -1,15 +1,15 @@
 package fr.karl.jeu1;
 
-public class Arme extends Case{
+public class Sort extends Case {
 	private String nom;
 	private int force;
 	
-	public Arme() {
+	public Sort() {		
 	}
 	
-	public Arme(String nomArme, int forceArme) {
-		nom = nomArme;
-		force = forceArme;
+	public Sort(String nomSort, int forceSort) {
+		nom = nomSort;
+		force = forceSort;		
 	}
 
 	public String getNom() {
@@ -30,7 +30,7 @@ public class Arme extends Case{
 
 	@Override
 	public String toString() {
-		return "Arme [nom=" + nom + ", force=" + force + "]";
+		return "Sort [nom=" + nom + ", force=" + force + "]";
 	}
 	
 	

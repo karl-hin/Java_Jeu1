@@ -1,47 +1,59 @@
 package fr.karl.jeu1;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
-public class Game {
+public class Game extends Case {
+
 	private Scanner clavier = new Scanner(System.in);
-	
-	private int[] Case;
-	private int index;
-	
+	private List<Case> listCase = new ArrayList<Case>();
+	private int positionJoueur;
+	private int indexJoueur;
 
 	public Game() {
-		Case = new int[64];
-		index = 1;		
-	}	
+		indexJoueur = 0;
+		listCase.add(new Arme());
+		listCase.add(new Sort());
+		listCase.add(new Gobelin());
+		listCase.add(new Dragon());
+		listCase.add(new Sorcier());
+		listCase.add(new GrandePotionVie());
+		listCase.add(new PotionVieStandard());
+		listCase.add(new CaseVide());
 
-	public int[] getCase() {
-		return Case;
 	}
 
-	public void setCase(int[] case1) {
-		Case = case1;
+	public List<Case> getListCase() {
+		return listCase;
 	}
 
-	public int getIndex() {
-		return index;
+	public void setListCase(List<Case> listCase) {
+		this.listCase = listCase;
 	}
 
-	public void setIndex(int index) {
-		this.index = index;
+	public int getIndexJoueur() {
+		return indexJoueur;
+	}
+
+	public void setIndexJoueur(int index) {
+		this.indexJoueur = index;
 	}
 
 	@Override
 	public String toString() {
-		return "Plateau [Case=" + Arrays.toString(Case) + ", index=" + index + "]";
-	}	
-	
+		return "Game [clavier=" + clavier + ", listCase=" + listCase + ", positionJoueur=" + positionJoueur + ", indexJoueur="
+				+ indexJoueur + "]";
+	}
+
+	// méthodes pour le déroulé du jeu
 	public int lancerDes() {
 		int lancerDe = 0;
 		lancerDe = 1 + (int) (Math.random() * 6);
 		return lancerDe;
 	}
-	
+
 	public void avancerJoueur() {
 		int playGamer;
 		System.out.println("C'est à votre tour\n" + "Appuyer sur un chiffre pour jeter le dé ");
@@ -49,7 +61,7 @@ public class Game {
 		clavier.nextLine();
 		System.out.println("Lancé de dé: " + lancerDes());
 	}
-	
+
 	public int rejouer() {
 		int joueurRejoue;
 		do {
@@ -62,5 +74,12 @@ public class Game {
 			}
 		} while (joueurRejoue != 0 && joueurRejoue != 1);
 		return joueurRejoue;
+	}
+	
+	public int randomIndexCase() {
+		int indexCase = 0;	
+			indexCase = (int) (Math.random() * listCase.size());
+			System.out.println("Cette case contient :" + listCase.get(indexCase));					
+		return indexCase;
 	}
 }
