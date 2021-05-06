@@ -58,12 +58,12 @@ public class Menu {
 			choisirPersonnage();			
 			positionJoueur = jouerUnTour.getIndexJoueur();
 			System.out.println("Vous commencez à la case: " + positionJoueur);
-			while (positionJoueur < 64) {
+			while (positionJoueur < jouerUnTour.getNbCase()) {
 				jouerUnTour.avancerJoueur();
 				positionJoueur = positionJoueur + jouerUnTour.lancerDes();
 				
 				try {
-					if (positionJoueur > 64) {
+					if (positionJoueur > jouerUnTour.getNbCase()) {
 						PersonnageHorsPlateauException e = new PersonnageHorsPlateauException();
 						throw e;
 					}
@@ -71,8 +71,8 @@ public class Menu {
 					System.out.println(error.getMessage());
 					positionJoueur = 64;
 				}
-				System.out.println("Vous êtes à la case " + (positionJoueur) + "/64");
-				System.out.println(jouerUnTour.randomIndexCase());
+				System.out.println("Vous êtes à la case " + (positionJoueur) + "/" + jouerUnTour.getNbCase());
+				System.out.println(jouerUnTour.getListCase().get(positionJoueur));
 			}
 			System.out.println("Vous avez gagné!");
 			choixRejouer = jouerUnTour.rejouer();

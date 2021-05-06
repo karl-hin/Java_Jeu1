@@ -7,22 +7,43 @@ import java.util.Scanner;
 
 public class Game extends Case {
 
+	private int nbCase;
 	private Scanner clavier = new Scanner(System.in);
 	private List<Case> listCase = new ArrayList<Case>();
-	private int positionJoueur;
 	private int indexJoueur;
 
 	public Game() {
 		indexJoueur = 0;
-		listCase.add(new Arme());
-		listCase.add(new Sort());
-		listCase.add(new Gobelin());
-		listCase.add(new Dragon());
-		listCase.add(new Sorcier());
-		listCase.add(new GrandePotionVie());
-		listCase.add(new PotionVieStandard());
-		listCase.add(new CaseVide());
-
+		nbCase = 64;		
+		for (int i = 0; i< nbCase; i++) {
+			int random = (int) (Math.random() * 8);		
+			switch(random) {
+			case 1:
+				listCase.add(new Arme());
+				break;
+			case 2:
+				listCase.add(new Sort());
+				break;
+			case 3:
+				listCase.add(new Gobelin());
+				break;
+			case 4:
+				listCase.add(new Dragon());
+				break;
+			case 5:
+				listCase.add(new Sorcier());
+				break;
+			case 6:
+				listCase.add(new GrandePotionVie());
+				break;
+			case 7:
+				listCase.add(new PotionVieStandard());
+				break;
+			case 8:
+				listCase.add(new CaseVide());
+				break;
+			}
+		}
 	}
 
 	public List<Case> getListCase() {
@@ -40,10 +61,20 @@ public class Game extends Case {
 	public void setIndexJoueur(int index) {
 		this.indexJoueur = index;
 	}
+	
+	public int getNbCase() {
+		return nbCase;
+	}
+
+	public void setNbCase(int nbCase) {
+		this.nbCase = nbCase;
+	}
+
+	
 
 	@Override
 	public String toString() {
-		return "Game [clavier=" + clavier + ", listCase=" + listCase + ", positionJoueur=" + positionJoueur + ", indexJoueur="
+		return "Game [nbCase=" + nbCase + ", clavier=" + clavier + ", listCase=" + listCase + ", indexJoueur="
 				+ indexJoueur + "]";
 	}
 
@@ -75,11 +106,5 @@ public class Game extends Case {
 		} while (joueurRejoue != 0 && joueurRejoue != 1);
 		return joueurRejoue;
 	}
-	
-	public int randomIndexCase() {
-		int indexCase = 0;	
-			indexCase = (int) (Math.random() * listCase.size());
-			System.out.println("Cette case contient :" + listCase.get(indexCase));					
-		return indexCase;
-	}
+
 }
