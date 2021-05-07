@@ -9,20 +9,21 @@ public class Game extends Case {
 
 	private int nbCase;
 	private Scanner clavier = new Scanner(System.in);
-	private List<Case> listCase = new ArrayList<Case>();
+	private List<Case> listCase;
 	private int indexJoueur;
 
 	public Game() {
+		listCase = new ArrayList<Case>();
 		indexJoueur = 0;
-		nbCase = 64;		
-		for (int i = 0; i< nbCase; i++) {
-			int random = (int) (Math.random() * 8);		
+		nbCase = 64;						
+			for (int i = 0; i< nbCase; i++) {
+				int random = 1 +(int) (Math.random() * 8);	
 			switch(random) {
 			case 1:
-				listCase.add(new Arme());
+				listCase.add(new Massue());
 				break;
 			case 2:
-				listCase.add(new Sort());
+				listCase.add(new Eclair());
 				break;
 			case 3:
 				listCase.add(new Gobelin());
@@ -40,10 +41,19 @@ public class Game extends Case {
 				listCase.add(new PotionVieStandard());
 				break;
 			case 8:
+				listCase.add(new BoulesDeFeu());
+				break;
+			case 9:
+				listCase.add(new Epee());
+				break;
+			case 10:
 				listCase.add(new CaseVide());
+				break;
+			default : 
 				break;
 			}
 		}
+		
 	}
 
 	public List<Case> getListCase() {
@@ -106,5 +116,7 @@ public class Game extends Case {
 		} while (joueurRejoue != 0 && joueurRejoue != 1);
 		return joueurRejoue;
 	}
+	
+	
 
 }

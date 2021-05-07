@@ -1,15 +1,15 @@
 package fr.karl.jeu1;
 
-public class Sort extends Case {
+public class Epee extends Case{
 	private String nom;
 	private int force;
 	
-	public Sort() {		
+	public Epee() {		
 	}
 	
-	public Sort(String nomSort, int forceSort) {
-		nom = nomSort;
-		force = forceSort;		
+	public Epee(String nomEpee, int forceEpee) {
+		nom = nomEpee;
+		force = forceEpee;		
 	}
 
 	public String getNom() {
@@ -32,7 +32,4 @@ public class Sort extends Case {
 	public String toString() {
 		return "Sort [nom=" + nom + ", force=" + force + "]";
 	}
-	
-	
-	
 }
