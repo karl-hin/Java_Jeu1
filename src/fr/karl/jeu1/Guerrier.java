@@ -30,13 +30,6 @@ public class Guerrier extends Personnage {
 
 	@Override
 	public String toString() {
-		return "Guerrier [arme=" + arme + "]";
+		return "Guerrier [arme=" + arme + ", getVie()=" + getVie() + ", getAtk()=" + getAtk() + "]";
 	}
-
-
-
-
-
-
-
 }

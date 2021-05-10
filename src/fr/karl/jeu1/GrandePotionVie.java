@@ -24,5 +24,12 @@ public class GrandePotionVie extends Case {
 		return "GrandePotionVie [grandePotionVie=" + grandePotionVie + "]";
 	}
 
+	@Override
+	public void action(Personnage p) {
+		System.out.println("une grande fiole pour vous soigner de 5 PV");
+		p.setVie(p.getVie() + this.getGrandePotionVie());
+		
+	}
+
 	
 }

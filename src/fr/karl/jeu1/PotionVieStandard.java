@@ -24,6 +24,12 @@ public class PotionVieStandard extends Case {
 		return "PotionVieStandard [VieStandard=" + VieStandard + "]";
 	}
 
+	@Override
+	public void action(Personnage p) {
+		System.out.println("une petiite fiole pour vous soigner de 2 PV");
+		p.setVie(p.getVie() + this.getVieStandard());
+	}
+
 	
 	
 }

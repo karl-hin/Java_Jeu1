@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class Game extends Case {
+public class Game {
 
 	private int nbCase;
 	private Scanner clavier = new Scanner(System.in);
@@ -15,7 +15,8 @@ public class Game extends Case {
 	public Personnage interaction(Personnage joueur, int positionJoueur) {
 		Case caseChoisit = listCase.get(positionJoueur);
 		System.out.println(caseChoisit.getClass());
-		if ((caseChoisit instanceof Epee && joueur instanceof Guerrier) || (caseChoisit instanceof Massue && joueur instanceof Guerrier)) {// pour les armes
+		caseChoisit.action(joueur);
+		/*if ((caseChoisit instanceof Epee && joueur instanceof Guerrier) || (caseChoisit instanceof Massue && joueur instanceof Guerrier)) {// pour les armes
 			((Guerrier) joueur).setArme((Arme) caseChoisit);
 		} else if ((caseChoisit instanceof BoulesDeFeu && joueur instanceof Magicien) || (caseChoisit instanceof Eclair && joueur instanceof Magicien)) {
 			((Magicien) joueur).setSort((Sort) caseChoisit);
@@ -25,7 +26,7 @@ public class Game extends Case {
 			joueur.setVie(joueur.getVie() + ((GrandePotionVie) caseChoisit).getGrandePotionVie());
 		} else if (caseChoisit instanceof Ennemies) {
 			System.out.println("présence d'un ennemi");
-		}
+		}*/
 		return joueur;
 	}
 
