@@ -35,5 +35,11 @@ public class Epee extends Arme{
 		return "Epee [nom=" + nom + ", force=" + force + "]";
 	}
 
-
+	public void action(Personnage p) {
+		if (p instanceof Guerrier) {
+			p.setAtk(p.getAtk() + this.getForce());
+		} else {
+			System.out.println("Dommage, l'épée ne peut être à vous");
+		}
+	}
 }

@@ -44,5 +44,11 @@ public class Ennemies extends Case {
 		return "Ennemies [Nom=" + Nom + ", Vie=" + Vie + ", Atk=" + Atk + "]";
 	}
 
+	@Override
+	public void action(Personnage p) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }

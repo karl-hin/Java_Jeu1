@@ -22,5 +22,9 @@ public class CaseVide extends Case {
 	public String toString() {
 		return "CaseVide [Reponse=" + Reponse + "]";
 	}
-	
+
+	@Override
+	public void action(Personnage p) {
+		System.out.println("Il ne reste plus rien sur cette case");
+	}	
 }

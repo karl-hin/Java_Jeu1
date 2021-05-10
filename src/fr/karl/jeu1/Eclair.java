@@ -35,6 +35,15 @@ public class Eclair extends Sort{
 		return "Eclair [nom=" + nom + ", force=" + force + "]";
 	}
 
+	@Override
+	public void action(Personnage p) {
+		if (p instanceof Magicien) {
+			p.setAtk(p.getAtk() + this.getForce());
+		} else {
+			System.out.println("Dommage, l'éclair ne peut être à vous");
+		}		
+	}
+
 	
 	
 }
