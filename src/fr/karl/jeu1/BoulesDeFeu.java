@@ -1,10 +1,12 @@
 package fr.karl.jeu1;
 
-public class BoulesDeFeu extends Case {
+public class BoulesDeFeu extends Sort {
 	private String nom;
 	private int force;
 	
-	public BoulesDeFeu() {		
+	public BoulesDeFeu() {
+		this.nom = "Boules de feu";
+		this.force = 7;
 	}
 	
 	public BoulesDeFeu(String nomBoulesDeFeu, int forceBoulesDeFeu) {
@@ -30,7 +32,9 @@ public class BoulesDeFeu extends Case {
 
 	@Override
 	public String toString() {
-		return "Sort [nom=" + nom + ", force=" + force + "]";
-	}	
+		return "BoulesDeFeu [nom=" + nom + ", force=" + force + "]";
+	}
+
+
 	
 }

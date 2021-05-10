@@ -1,6 +1,6 @@
 package fr.karl.jeu1;
 
-public class Arme extends Case{
+public abstract class Arme extends Case{
 	private String nom;
 	private int force;
 	
@@ -8,8 +8,8 @@ public class Arme extends Case{
 	}
 	
 	public Arme(String nomArme, int forceArme) {
-		nom = nomArme;
-		force = forceArme;
+		this.nom = nomArme;
+		this.force = forceArme;
 	}
 
 	public String getNom() {
@@ -32,7 +32,5 @@ public class Arme extends Case{
 	public String toString() {
 		return "Arme [nom=" + nom + ", force=" + force + "]";
 	}
-	
-	
 	
 }

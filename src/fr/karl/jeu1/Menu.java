@@ -33,14 +33,24 @@ public class Menu {
 		if (choix == 1) {
 			System.out.print("Veuillez saisir le nom de votre personnage : ");
 			nomJoueur = clavier.nextLine();
-			joueur = new Guerrier(nomJoueur);
+			System.out.print("Veuillez saisir la vie du perso (entre 5 et 10): ");
+			int inputVie = clavier.nextInt();
+			System.out.print("Veuillez saisir l'attaque du perso (entre 5 et 10): ");
+			int inputAtk = clavier.nextInt();
+			clavier.nextLine();
+			joueur = new Guerrier(nomJoueur, inputVie, inputAtk);
 			System.out.println("Votre personnage est un guerrier, s'appelle " + joueur.getNom() + ", commence avec "
 					+ joueur.getVie() + " point de vie, " + joueur.getAtk() + " points d'attaque, "
 					+ joueur.toString());
 		} else if (choix == 2) {
 			System.out.print("Veuillez saisir le nom de votre personnage : ");
 			nomJoueur = clavier.nextLine();
-			joueur = new Magicien(nomJoueur);
+			System.out.print("Veuillez saisir la vie du perso (entre 3 et 6): ");
+			int inputVie = clavier.nextInt();
+			System.out.print("Veuillez saisir l'attaque du perso (entre 8 et 15): ");
+			int inputAtk = clavier.nextInt();
+			clavier.nextLine();
+			joueur = new Magicien(nomJoueur, inputVie, inputAtk);
 			System.out.println("Votre personnage est un magicien, s'appelle " + joueur.getNom() + ", commence avec "
 					+ joueur.getVie() + " point de vie et " + joueur.getAtk() + " points d'attaque, "
 					+ joueur.toString());
@@ -53,20 +63,22 @@ public class Menu {
 		int positionJoueur;
 		Game jouerUnTour = new Game();
 		int choixRejouer = 0;
-		
+
 		do {
-			choisirPersonnage();
+			Personnage joueurChoisit = choisirPersonnage();// retourne le joueur choisit
 			positionJoueur = jouerUnTour.getIndexJoueur();
 			System.out.println("Vous commencez à la case: " + positionJoueur);
-			while (positionJoueur < jouerUnTour.getNbCase()) {				
+			while (positionJoueur < jouerUnTour.getNbCase()) {
 				jouerUnTour.avancerJoueur();
-				positionJoueur = positionJoueur + jouerUnTour.lancerDes();				
-				try {					
+				positionJoueur = positionJoueur + jouerUnTour.lancerDes();
+				try {
 					if (positionJoueur >= jouerUnTour.getNbCase()) {
 						PersonnageHorsPlateauException e = new PersonnageHorsPlateauException();
-						throw e;				
+						throw e;
 					} else {
-					System.out.println(jouerUnTour.getListCase().get(positionJoueur));
+						joueurChoisit = jouerUnTour.interaction(joueurChoisit, positionJoueur); // je lance l'effet de la case
+						System.out.println(jouerUnTour.getListCase().get(positionJoueur));
+						System.out.println(joueurChoisit.toString());
 					}
 				} catch (PersonnageHorsPlateauException error) {
 					System.out.println(error.getMessage());

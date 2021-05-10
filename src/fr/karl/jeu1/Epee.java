@@ -1,15 +1,17 @@
 package fr.karl.jeu1;
 
-public class Epee extends Case{
+public class Epee extends Arme{
 	private String nom;
 	private int force;
 	
-	public Epee() {		
+	public Epee() {
+		this.nom = "Epée";
+		this.force = 5;
 	}
 	
 	public Epee(String nomEpee, int forceEpee) {
-		nom = nomEpee;
-		force = forceEpee;		
+		this.nom = nomEpee;
+		this.force = forceEpee;		
 	}
 
 	public String getNom() {
@@ -30,6 +32,8 @@ public class Epee extends Case{
 
 	@Override
 	public String toString() {
-		return "Sort [nom=" + nom + ", force=" + force + "]";
+		return "Epee [nom=" + nom + ", force=" + force + "]";
 	}
+
+
 }

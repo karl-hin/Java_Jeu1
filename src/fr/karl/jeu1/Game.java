@@ -12,13 +12,30 @@ public class Game extends Case {
 	private List<Case> listCase;
 	private int indexJoueur;
 
+	public Personnage interaction(Personnage joueur, int positionJoueur) {
+		Case caseChoisit = listCase.get(positionJoueur);
+		System.out.println(caseChoisit.getClass());
+		if ((caseChoisit instanceof Epee && joueur instanceof Guerrier) || (caseChoisit instanceof Massue && joueur instanceof Guerrier)) {// pour les armes
+			((Guerrier) joueur).setArme((Arme) caseChoisit);
+		} else if ((caseChoisit instanceof BoulesDeFeu && joueur instanceof Magicien) || (caseChoisit instanceof Eclair && joueur instanceof Magicien)) {
+			((Magicien) joueur).setSort((Sort) caseChoisit);
+		} else if (caseChoisit instanceof PotionVieStandard) {
+			joueur.setVie(joueur.getVie() + ((PotionVieStandard) caseChoisit).getVieStandard());
+		} else if (caseChoisit instanceof GrandePotionVie) {
+			joueur.setVie(joueur.getVie() + ((GrandePotionVie) caseChoisit).getGrandePotionVie());
+		} else if (caseChoisit instanceof Ennemies) {
+			System.out.println("présence d'un ennemi");
+		}
+		return joueur;
+	}
+
 	public Game() {
 		listCase = new ArrayList<Case>();
-		indexJoueur = 0;
-		nbCase = 64;						
-			for (int i = 0; i< nbCase; i++) {
-				int random = 1 +(int) (Math.random() * 8);	
-			switch(random) {
+		// indexJoueur = 0;
+		nbCase = 64;
+		for (int i = 0; i < nbCase; i++) {
+			int random = 1 + (int) (Math.random() * 8);
+			switch (random) {
 			case 1:
 				listCase.add(new Massue());
 				break;
@@ -49,11 +66,11 @@ public class Game extends Case {
 			case 10:
 				listCase.add(new CaseVide());
 				break;
-			default : 
+			default:
 				break;
 			}
 		}
-		
+
 	}
 
 	public List<Case> getListCase() {
@@ -71,7 +88,7 @@ public class Game extends Case {
 	public void setIndexJoueur(int index) {
 		this.indexJoueur = index;
 	}
-	
+
 	public int getNbCase() {
 		return nbCase;
 	}
@@ -79,8 +96,6 @@ public class Game extends Case {
 	public void setNbCase(int nbCase) {
 		this.nbCase = nbCase;
 	}
-
-	
 
 	@Override
 	public String toString() {
@@ -96,9 +111,8 @@ public class Game extends Case {
 	}
 
 	public void avancerJoueur() {
-		int playGamer;
 		System.out.println("C'est à votre tour\n" + "Appuyer sur un chiffre pour jeter le dé ");
-		playGamer = clavier.nextInt();
+		clavier.nextInt();
 		clavier.nextLine();
 		System.out.println("Lancé de dé: " + lancerDes());
 	}
@@ -116,7 +130,5 @@ public class Game extends Case {
 		} while (joueurRejoue != 0 && joueurRejoue != 1);
 		return joueurRejoue;
 	}
-	
-	
 
 }
