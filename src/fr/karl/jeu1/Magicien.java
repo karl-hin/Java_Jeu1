@@ -1,37 +1,37 @@
 package fr.karl.jeu1;
 
 public class Magicien extends Personnage {
-	private static final int DEFAULT_LIFE = 5;
-	private static final int DEFAULT_ATK = 13;
-	private Arme arme;
-	private String Defense;
+	private Sort sort;
 
 	public Magicien() {
+		super();
 	}
 
 	public Magicien(String magicienNom) {
+		setNom(magicienNom);
 	}
 
-	public Magicien(String magicienNom, String magicienImage, Arme magicienarme,
-			String magicienDefense) {
-		//super est utilisé pour corrspondre aux paramètres de la classe parnet Personnage
-		super(magicienNom, magicienImage, DEFAULT_LIFE, DEFAULT_ATK);
-		arme = magicienarme;
-		Defense = magicienDefense;		
+	public Magicien(String magicienNom,  int vie, int Atk) {
+		setNom(magicienNom);
+		setVie(vie);
+		setAtk(Atk);
+		this.sort = new Eclair();
 	}
 
-	public String getDefense() {
-		return Defense;
+	public Sort getSort() {
+		return sort;
 	}
 
-	public void setDefense(String defense) {
-		Defense = defense;
+	public void setSort(Sort sort) {
+		this.sort = sort;
 	}
 
 	@Override
 	public String toString() {
-		return "Magicien [Nom=" + getNom() + ", Vie=" + getVie() + ", Atk=" + getAtk() + ", Image=" + getImage() +" arme=" + arme + ", Defense=" + Defense + "]";
+		return "Magicien [sort=" + sort + ", getVie()=" + getVie() + ", getAtk()=" + getAtk() + "]";
 	}
+
+
 
 
 }

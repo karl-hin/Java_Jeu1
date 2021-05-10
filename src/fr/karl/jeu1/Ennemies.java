@@ -1,21 +1,18 @@
 package fr.karl.jeu1;
 
-public class Dragon extends Ennemies {
+public class Ennemies extends Case {
 
 	private String Nom;
 	private int Vie;
 	private int Atk;
 
-	public Dragon() {
-		this.Nom ="Dragon";
-		this.Vie = 15;
-		this.Atk= 4;
+	public Ennemies() {
 	}
 
-	public Dragon(String nomDragon, int vieDragon, int atkDragon) {
-		this.Nom = nomDragon;
-		this.Vie = vieDragon;
-		this.Atk = atkDragon;
+	public Ennemies(String nomEnnemies, int vieEnnemies, int atkEnnemies) {
+		this.Nom = nomEnnemies;
+		this.Vie = vieEnnemies;
+		this.Atk = atkEnnemies;
 	}
 
 	public String getNom() {
@@ -44,6 +41,8 @@ public class Dragon extends Ennemies {
 
 	@Override
 	public String toString() {
-		return "Dragon [Nom=" + Nom + ", Vie=" + Vie + ", Atk=" + Atk + "]";
-	}	
+		return "Ennemies [Nom=" + Nom + ", Vie=" + Vie + ", Atk=" + Atk + "]";
+	}
+
+
 }

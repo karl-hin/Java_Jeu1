@@ -1,63 +1,82 @@
 package fr.karl.jeu1;
 
-public abstract class Personnage extends Case {
-	private String Nom;
-	private int Vie;
-	private int Atk;
-	private String Image;
+public abstract class Personnage {
+	private String nom;
+	private int vie;
+	private int atk;
+	private String image;
+	private String defense;
 
 	public Personnage() {
-	
+		this.nom = "";
+		this.image = "";
+		this.vie = 0; 
+		this.atk = 0;
+		this.defense = "";
 	}
 
 	public Personnage(String Nom) {
-		this.Nom = Nom;
+		this.nom = Nom;
+		this.image = "";
+		this.vie = 0; 
+		this.atk = 0;
+		this.defense = "";
 	}
 
-	public Personnage(String personnageNom, String personnageImage, int personnageVie, int personnageAtk) {
-		Nom = personnageNom;
-		Image = personnageImage;
-		Vie = personnageVie;
-		Atk = personnageAtk;
+	public Personnage(String personnageNom, String personnageImage, int personnageVie, int personnageAtk, Arme personnageArme, String personnageDefense) {
+		this.nom = personnageNom;
+		this.image = personnageImage;
+		this.vie = personnageVie;
+		this.atk = personnageAtk;
+		this.defense = personnageDefense;
 	}
 
 	public String getNom() {
-		return Nom;
+		return nom;
 	}
 
 	public void setNom(String nom) {
-		Nom = nom;
+		this.nom = nom;
 	}
 
 	public int getVie() {
-		return Vie;
+		return vie;
 	}
 
 	public void setVie(int vie) {
-		Vie = vie;
+		this.vie = vie;
 	}
 
 	public int getAtk() {
-		return Atk;
+		return atk;
 	}
 
 	public void setAtk(int atk) {
-		Atk = atk;
+		this.atk = atk;
 	}
 
 	public String getImage() {
-		return Image;
+		return image;
 	}
 
 	public void setImage(String image) {
-		Image = image;
+		this.image = image;
+	}
+
+
+
+	public String getDefense() {
+		return defense;
+	}
+
+	public void setDefense(String defense) {
+		this.defense = defense;
 	}
 
 	@Override
 	public String toString() {
-		return "Personnage [Nom=" + Nom + ", Vie=" + Vie + ", Atk=" + Atk + ", Image=" + Image + "]";
+		return "Personnage [nom=" + nom + ", vie=" + vie + ", atk=" + atk + ", image=" + image + ", defense=" + defense
+				+ "]";
 	}
-	
-	
 
 }

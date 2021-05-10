@@ -1,18 +1,21 @@
 package fr.karl.jeu1;
 
-public class Sorcier extends Case {
+public class Sorcier extends Ennemies {
 
 	private String Nom;
 	private int Vie;
 	private int Atk;
 
 	public Sorcier() {
+		this.Nom ="Sorcier";
+		this.Vie = 9;
+		this.Atk= 2;
 	}
 
 	public Sorcier(String nomSorcier, int vieSorcier, int atkSorcier) {
-		Nom = nomSorcier;
-		Vie = vieSorcier;
-		Atk = atkSorcier;
+		this.Nom = nomSorcier;
+		this.Vie = vieSorcier;
+		this.Atk = atkSorcier;
 	}
 
 	public String getNom() {

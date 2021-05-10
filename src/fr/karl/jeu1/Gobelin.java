@@ -1,17 +1,20 @@
 package fr.karl.jeu1;
 
-public class Gobelin extends Case {
+public class Gobelin extends Ennemies {
 	private String Nom;
 	private int Vie;
 	private int Atk;
 	
 	public Gobelin() {
+		this.Nom ="Gobelin";
+		this.Vie = 6;
+		this.Atk= 1;
 	}
 	
 	public Gobelin(String nomGobelin, int vieGobelin, int atkGobelin) {
-		Nom = nomGobelin;
-		Vie = vieGobelin;
-		Atk = atkGobelin;
+		this.Nom = nomGobelin;
+		this.Vie = vieGobelin;
+		this.Atk = atkGobelin;
 	}
 
 	public String getNom() {

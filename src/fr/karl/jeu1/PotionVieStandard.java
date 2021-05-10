@@ -1,27 +1,29 @@
 package fr.karl.jeu1;
 
 public class PotionVieStandard extends Case {
-	private int Vie;
+	private int VieStandard;
 	
 	public PotionVieStandard() {
+		this.VieStandard = 2;
 	}
 	
 	public PotionVieStandard(int viePotionStandard) {
-		Vie = viePotionStandard;
+		VieStandard = viePotionStandard;
 	}
 
-	public int getVie() {
-		return Vie;
+	public int getVieStandard() {
+		return VieStandard;
 	}
 
-	public void setVie(int vie) {
-		Vie = vie;
+	public void setVieStandard(int vieStandard) {
+		VieStandard = vieStandard;
 	}
 
 	@Override
 	public String toString() {
-		return "PotionVieStandard [Vie=" + Vie + "]";
+		return "PotionVieStandard [VieStandard=" + VieStandard + "]";
 	}
+
 	
 	
 }

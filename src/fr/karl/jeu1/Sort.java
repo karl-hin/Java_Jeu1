@@ -1,17 +1,15 @@
 package fr.karl.jeu1;
 
-public class Eclair extends Sort{
+public abstract class Sort extends Case{
 	private String nom;
 	private int force;
 	
-	public Eclair() {
-		this.nom = "Eclair";
-		this.force = 2;
+	public Sort() {
 	}
 	
-	public Eclair(String nomEclair, int forceEclair) {
-		this.nom = nomEclair;
-		this.force = forceEclair;
+	public Sort(String nomSort, int forceSort) {
+		this.nom = nomSort;
+		this.force = forceSort;
 	}
 
 	public String getNom() {
@@ -32,9 +30,10 @@ public class Eclair extends Sort{
 
 	@Override
 	public String toString() {
-		return "Eclair [nom=" + nom + ", force=" + force + "]";
+		return "Sort [nom=" + nom + ", force=" + force + "]";
 	}
-
+	
 	
 	
 }
+

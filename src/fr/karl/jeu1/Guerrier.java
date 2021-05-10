@@ -1,38 +1,40 @@
 package fr.karl.jeu1;
 
 public class Guerrier extends Personnage {
-
-	private static final int DEFAULT_LIFE = 10;
-	private static final int DEFAULT_ATK = 8;	
 	private Arme arme;
-	private String Defense;
 
 	public Guerrier() {
+		super();
 	}
 
 	public Guerrier(String guerrierNom) {
-		
+		setNom(guerrierNom);
 	}
 
-	public Guerrier(String guerrierNom, String guerrierImage, Arme guerrierarme,
-			String guerrierDefense) {
-		super(guerrierNom, guerrierImage, DEFAULT_LIFE, DEFAULT_ATK);
-		arme = guerrierarme;
-		Defense = guerrierDefense;
+	public Guerrier(String guerrierNom, int vie, int Atk) {
+		setNom(guerrierNom);
+		setVie(vie);
+		setAtk(Atk);
+		this.arme = new Epee();
+	}
+	
+	
+
+	public Arme getArme() {
+		return arme;
 	}
 
-	public String getBouclier() {
-		return Defense;
-	}
-
-	public void setBouclier(String bouclier) {
-		Defense = bouclier;
+	public void setArme(Arme arme) {
+		this.arme = arme;
 	}
 
 	@Override
 	public String toString() {
-		return "Guerrier [Nom=" + getNom() + ", Vie=" + getVie() + ", Atk=" + getAtk() + ", Image=" + getImage() +" arme=" + arme + ", Defense=" + Defense + "]";
+		return "Guerrier [arme=" + arme + "]";
 	}
+
+
+
 
 
 
