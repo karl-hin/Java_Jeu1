@@ -37,7 +37,7 @@ public class Epee extends Arme{
 
 	public void action(Personnage p) {
 		if (p instanceof Guerrier) {
-			p.setAtk(p.getAtk() + this.getForce());
+			((Guerrier)p).setArme(this);
 		} else {
 			System.out.println("Dommage, l'épée ne peut être à vous");
 		}

@@ -38,7 +38,7 @@ public class Eclair extends Sort{
 	@Override
 	public void action(Personnage p) {
 		if (p instanceof Magicien) {
-			p.setAtk(p.getAtk() + this.getForce());
+			((Magicien)p).setSort(this);
 		} else {
 			System.out.println("Dommage, l'éclair ne peut être à vous");
 		}		

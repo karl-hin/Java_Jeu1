@@ -11,11 +11,9 @@ public class Magicien extends Personnage {
 		setNom(magicienNom);
 	}
 
-	public Magicien(String magicienNom,  int vie, int Atk) {
-		setNom(magicienNom);
-		setVie(vie);
-		setAtk(Atk);
-		this.sort = new Eclair();
+	public Magicien(String magicienNom,  int vie, int atk) {
+		super(magicienNom, "", vie, atk, null, "");
+		setSort(new BatonMage());
 	}
 
 	public Sort getSort() {
@@ -24,14 +22,11 @@ public class Magicien extends Personnage {
 
 	public void setSort(Sort sort) {
 		this.sort = sort;
+		setAtk(sort.getForce());
 	}
 
 	@Override
 	public String toString() {
 		return "Magicien [sort=" + sort + ", getVie()=" + getVie() + ", getAtk()=" + getAtk() + "]";
 	}
-
-
-
-
 }

@@ -16,19 +16,9 @@ public class Game {
 		Case caseChoisit = listCase.get(positionJoueur);
 		System.out.println(caseChoisit.getClass());
 		caseChoisit.action(joueur);
-		/*if ((caseChoisit instanceof Epee && joueur instanceof Guerrier) || (caseChoisit instanceof Massue && joueur instanceof Guerrier)) {// pour les armes
-			((Guerrier) joueur).setArme((Arme) caseChoisit);
-		} else if ((caseChoisit instanceof BoulesDeFeu && joueur instanceof Magicien) || (caseChoisit instanceof Eclair && joueur instanceof Magicien)) {
-			((Magicien) joueur).setSort((Sort) caseChoisit);
-		} else if (caseChoisit instanceof PotionVieStandard) {
-			joueur.setVie(joueur.getVie() + ((PotionVieStandard) caseChoisit).getVieStandard());
-		} else if (caseChoisit instanceof GrandePotionVie) {
-			joueur.setVie(joueur.getVie() + ((GrandePotionVie) caseChoisit).getGrandePotionVie());
-		} else if (caseChoisit instanceof Ennemies) {
-			System.out.println("présence d'un ennemi");
-		}*/
 		return joueur;
 	}
+
 
 	public Game() {
 		listCase = new ArrayList<Case>();
