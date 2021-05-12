@@ -38,13 +38,10 @@ public class BoulesDeFeu extends Sort {
 	@Override
 	public void action(Personnage p) {
 		if (p instanceof Magicien) {
-			p.setAtk(p.getAtk() + this.getForce());
+			((Magicien)p).setSort(this);
 		} else {
 			System.out.println("Dommage, les boules de feu ne peuvent être à vous");
-		}
-		
+		}		
 	}
-
-
 	
 }

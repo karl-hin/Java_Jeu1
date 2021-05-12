@@ -55,7 +55,6 @@ public class Menu {
 					+ joueur.getVie() + " point de vie et " + joueur.getAtk() + " points d'attaque, "
 					+ joueur.toString());
 		}
-		// clavier.close();
 		return joueur;
 	}
 
@@ -68,25 +67,25 @@ public class Menu {
 			Personnage joueurChoisit = choisirPersonnage();// retourne le joueur choisit
 			positionJoueur = jouerUnTour.getIndexJoueur();
 			System.out.println("Vous commencez à la case: " + positionJoueur);
-			while (positionJoueur < jouerUnTour.getNbCase()) {
+			while (positionJoueur < jouerUnTour.getNbCase()  && joueurChoisit.getVie() > 0) {
 				jouerUnTour.avancerJoueur();
 				positionJoueur = positionJoueur + jouerUnTour.lancerDes();
+				System.out.println("Vous êtes à la case " + positionJoueur + "/" + jouerUnTour.getNbCase());
 				try {
 					if (positionJoueur >= jouerUnTour.getNbCase()) {
 						PersonnageHorsPlateauException e = new PersonnageHorsPlateauException();
 						throw e;
 					} else {
 						joueurChoisit = jouerUnTour.interaction(joueurChoisit, positionJoueur); // je lance l'effet de la case
-						System.out.println(jouerUnTour.getListCase().get(positionJoueur));
 						System.out.println(joueurChoisit.toString());
 					}
 				} catch (PersonnageHorsPlateauException error) {
 					System.out.println(error.getMessage());
 					positionJoueur = 64;
 				}
-				System.out.println("Vous êtes à la case " + positionJoueur + "/" + jouerUnTour.getNbCase());
+				
 			}
-			System.out.println("Vous avez gagné!");
+			//System.out.println("Vous avez gagné!");
 			choixRejouer = jouerUnTour.rejouer();
 		} while (choixRejouer == 0);// fin de la boucle
 	}

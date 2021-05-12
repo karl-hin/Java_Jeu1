@@ -11,13 +11,10 @@ public class Guerrier extends Personnage {
 		setNom(guerrierNom);
 	}
 
-	public Guerrier(String guerrierNom, int vie, int Atk) {
-		setNom(guerrierNom);
-		setVie(vie);
-		setAtk(Atk);
-		this.arme = new Epee();
+	public Guerrier(String guerrierNom, int vie, int atk) {
+		super(guerrierNom, "", vie, atk, null, "");
+		setArme(new BatonGuerrier());
 	}
-	
 	
 
 	public Arme getArme() {
@@ -26,6 +23,7 @@ public class Guerrier extends Personnage {
 
 	public void setArme(Arme arme) {
 		this.arme = arme;
+		setAtk(arme.getForce());
 	}
 
 	@Override

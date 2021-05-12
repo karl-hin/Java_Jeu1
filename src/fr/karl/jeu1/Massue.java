@@ -38,7 +38,7 @@ public class Massue extends Arme {
 	@Override
 	public void action(Personnage p) {
 		if (p instanceof Guerrier) {
-			p.setAtk(p.getAtk() + this.getForce());
+			((Guerrier)p).setArme(this);
 		} else {
 			System.out.println("Dommage, la massue ne peut être à vous");
 		}

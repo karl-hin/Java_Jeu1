@@ -1,19 +1,19 @@
 package fr.karl.jeu1;
 
-public class Epee extends Arme{
+public class BatonMage extends Sort {
 	private String nom;
 	private int force;
 	
-	public Epee() {
-		this.nom = "Epée";
-		this.force = 5;
+	public BatonMage() {
+		this.nom = "Baton";
+		this.force = 0;
 	}
 	
-	public Epee(String nomEpee, int forceEpee) {
-		this.nom = nomEpee;
-		this.force = forceEpee;		
+	public BatonMage(String nomBatonMage, int forceBatonMage) {
+		nom = nomBatonMage;
+		force = forceBatonMage;		
 	}
-
+	
 	public String getNom() {
 		return nom;
 	}
@@ -32,14 +32,13 @@ public class Epee extends Arme{
 
 	@Override
 	public String toString() {
-		return "Epee [nom=" + nom + ", force=" + force + "]";
+		return "BatonMage [nom=" + nom + ", force=" + force + "]";
 	}
 
+	@Override
 	public void action(Personnage p) {
-		if (p instanceof Guerrier) {
-			((Guerrier)p).setArme(this);
-		} else {
-			System.out.println("Dommage, l'épée ne peut être à vous");
-		}
+		// TODO Auto-generated method stub
+		
 	}
+
 }

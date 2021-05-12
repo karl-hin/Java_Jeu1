@@ -1,9 +1,15 @@
 package fr.karl.jeu1;
 
+/*
+ * <b>
+ */
+
 public abstract class Personnage {
 	private String nom;
 	private int vie;
 	private int atk;
+	int baseAtk;
+	int baseVie;
 	private String image;
 	private String defense;
 
@@ -27,8 +33,10 @@ public abstract class Personnage {
 		this.nom = personnageNom;
 		this.image = personnageImage;
 		this.vie = personnageVie;
+		this.baseVie = personnageVie;
 		this.atk = personnageAtk;
 		this.defense = personnageDefense;
+		this.baseAtk = personnageAtk;
 	}
 
 	public String getNom() {
@@ -42,7 +50,7 @@ public abstract class Personnage {
 	public int getVie() {
 		return vie;
 	}
-
+	
 	public void setVie(int vie) {
 		this.vie = vie;
 	}
@@ -52,7 +60,7 @@ public abstract class Personnage {
 	}
 
 	public void setAtk(int atk) {
-		this.atk = atk;
+		this.atk = this.baseAtk + atk;
 	}
 
 	public String getImage() {
