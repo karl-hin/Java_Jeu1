@@ -1,5 +1,10 @@
 package fr.karl.jeu1;
 
+/**
+ * @author karlo
+ * <b>Personnage est la classe parent de la classe Guerrier et Magicien</b>
+ * 
+ */
 public abstract class Personnage {
 	private String nom;
 	private int vie;
@@ -8,7 +13,10 @@ public abstract class Personnage {
 	int baseVie;
 	private String image;
 	private String defense;
-
+	
+	/**
+	 * Constructeur par défaut
+	 */
 	public Personnage() {
 		this.nom = "";
 		this.image = "";
@@ -17,6 +25,9 @@ public abstract class Personnage {
 		this.defense = "";
 	}
 
+	/**
+	 * @param Nom c'est le nom du personnage
+	 */
 	public Personnage(String Nom) {
 		this.nom = Nom;
 		this.image = "";
@@ -25,6 +36,14 @@ public abstract class Personnage {
 		this.defense = "";
 	}
 
+	/**
+	 * @param personnageNom c'est le nom du personnage
+	 * @param personnageImage c'est l'image du personnage
+	 * @param personnageVie c'est la vie du personnage
+	 * @param personnageAtk c'est l'attaque du personnage
+	 * @param personnageArme c'est l'arme du personnage
+	 * @param personnageDefense c'est la défnese du personnage
+	 */
 	public Personnage(String personnageNom, String personnageImage, int personnageVie, int personnageAtk, Arme personnageArme, String personnageDefense) {
 		this.nom = personnageNom;
 		this.image = personnageImage;
@@ -46,10 +65,6 @@ public abstract class Personnage {
 	public int getVie() {
 		return vie;
 	}
-/*
-	public void setVie(int vie) {
-		this.vie = this.baseVie + vie;
-	*/
 	
 	public void setVie(int vie) {
 		this.vie = vie;
@@ -60,7 +75,7 @@ public abstract class Personnage {
 	}
 
 	public void setAtk(int atk) {
-		this.atk = this.baseAtk + atk;
+		this.atk = this.baseAtk + atk;// quand le personnage tombera sur une case arme, ça gardera son atk de base et ça rajoute l'atk de l'arme
 	}
 
 	public String getImage() {
@@ -70,8 +85,6 @@ public abstract class Personnage {
 	public void setImage(String image) {
 		this.image = image;
 	}
-
-
 
 	public String getDefense() {
 		return defense;

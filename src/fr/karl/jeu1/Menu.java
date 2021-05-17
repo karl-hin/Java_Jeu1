@@ -2,12 +2,18 @@ package fr.karl.jeu1;
 
 import java.util.Scanner;
 
+/**
+ * @author karlo
+ * <b> la classe Menu s'occupe du choix utilisateur pour lancer le jeu ou quitter </b>
+ */
 public class Menu {
 	private Scanner clavier = new Scanner(System.in);
 
+	/**
+	 * cette méthode permet une demande utilisateur pour jouer ou quitter le jeu
+	 */
 	public void afficherMenuAccueil() {
 		int choix;
-		// Scanner clavier = new Scanner(System.in);
 		System.out.print(
 				"Taper 1 pour jouerUnTour le jeu\n" + "Taper 2 si vous souhaiter quitter le jeu\n" + "Votre choix: ");
 		choix = clavier.nextInt();
@@ -17,9 +23,12 @@ public class Menu {
 		} else if (choix == 2) {
 			exit();
 		}
-		// clavier.close();
 	}
 
+	/**
+	 * cette méthode permet au joueur de choisir un personnage Guerrier ou Magicien
+	 * @return le type de personnage choisit
+	 */
 	public Personnage choisirPersonnage() {
 		String nomJoueur;
 		int choix;
@@ -58,18 +67,21 @@ public class Menu {
 		return joueur;
 	}
 
+	/**
+	 * cette méthode permet des demandes utilisateur récurrentes pour le déroulé du jeu
+	 * Il choisit un personnage(ou il peut quitter le jeu), il lance le dé, 
+	 */
 	public void playGame() {
 		int positionJoueur;
 		Game jouerUnTour = new Game();
 		int choixRejouer = 0;
-
+		
 		do {
 			Personnage joueurChoisit = choisirPersonnage();// retourne le joueur choisit
 			positionJoueur = jouerUnTour.getIndexJoueur();
 			System.out.println("Vous commencez à la case: " + positionJoueur);
-			while (positionJoueur < jouerUnTour.getNbCase()  && joueurChoisit.getVie() > 0) {
-				jouerUnTour.avancerJoueur();
-				positionJoueur = positionJoueur + jouerUnTour.lancerDes();
+			while (positionJoueur < jouerUnTour.getNbCase()  && joueurChoisit.getVie() > 0) {			
+				positionJoueur = jouerUnTour.avancerJoueur();
 				System.out.println("Vous êtes à la case " + positionJoueur + "/" + jouerUnTour.getNbCase());
 				try {
 					if (positionJoueur >= jouerUnTour.getNbCase()) {
@@ -82,14 +94,16 @@ public class Menu {
 				} catch (PersonnageHorsPlateauException error) {
 					System.out.println(error.getMessage());
 					positionJoueur = 64;
-				}
-				
+				}				
 			}
 			//System.out.println("Vous avez gagné!");
 			choixRejouer = jouerUnTour.rejouer();
 		} while (choixRejouer == 0);// fin de la boucle
 	}
 
+	/**
+	 * cette méthode permet au joueur de quitter le jeu ou de se reconnecter
+	 */
 	public void exit() {
 		int exitJoueur;
 		System.out.print("Etes-vous sûr de vouloir quitter le jeu?\n" + "Taper 1 pour oui\n" + "Taper 2 pour non\n"

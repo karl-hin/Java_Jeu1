@@ -1,5 +1,9 @@
 package fr.karl.jeu1;
 
+/**
+ * @author karlo
+ * <b>la class Ennemies hérite de la class Case </b>
+ */
 public class Ennemies extends Case {
 
 	private String Nom;
@@ -9,6 +13,11 @@ public class Ennemies extends Case {
 	public Ennemies() {
 	}
 
+	/**
+	 * @param nomEnnemies c'est le nom de l'ennemi
+	 * @param vieEnnemies c'est la vie de l'ennemi
+	 * @param atkEnnemies c'est l'attaque de l'ennemi
+	 */
 	public Ennemies(String nomEnnemies, int vieEnnemies, int atkEnnemies) {
 		this.Nom = nomEnnemies;
 		this.Vie = vieEnnemies;
@@ -45,7 +54,7 @@ public class Ennemies extends Case {
 	}
 
 	@Override
-	public void action(Personnage p) {
+	public void action(Personnage p) { //méthode hérité de la classe Case
 		// TODO Auto-generated method stub
 		
 	}

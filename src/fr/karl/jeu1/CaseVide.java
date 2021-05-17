@@ -1,11 +1,22 @@
 package fr.karl.jeu1;
 
+/**
+ * @author karlo
+ * <b> class CaseVide hérite de la class Case </b>
+ * elle contient un seul attribut
+ */
 public class CaseVide extends Case {
 	String Reponse = "Vous êtes sur une case vide";
 	
+	/**
+	 * constructeur par défaut
+	 */
 	public CaseVide() {
 	}
 	
+	/**
+	 * @param reponse renvoie un String
+	 */
 	public CaseVide(String reponse) {
 		Reponse = reponse;
 	}
@@ -24,7 +35,7 @@ public class CaseVide extends Case {
 	}
 
 	@Override
-	public void action(Personnage p) {
-		System.out.println("Il ne reste plus rien sur cette case");
+	public void action(Personnage p) { //méthode hérité de la classe Case
+		System.out.println("Il ne reste plus rien sur cette case"); // quand le personnage tombe sur cette case il ne se passe rien
 	}	
 }
