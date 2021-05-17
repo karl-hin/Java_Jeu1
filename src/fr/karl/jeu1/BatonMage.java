@@ -47,7 +47,7 @@ public class BatonMage extends Sort {
 	}
 
 	@Override
-	public void action(Personnage p) { //méthode hérité de la classe Case
+	protected void action(Personnage p, Game game) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -1,8 +1,7 @@
 package fr.karl.jeu1;
 
 /**
- * @author karlo
- * <b>la class Ennemies hérite de la class Case </b>
+ * @author karlo <b>la class Ennemies hérite de la class Case </b>
  */
 public class Ennemies extends Case {
 
@@ -54,10 +53,9 @@ public class Ennemies extends Case {
 	}
 
 	@Override
-	public void action(Personnage p) { //méthode hérité de la classe Case
+	protected void action(Personnage p, Game game) {
 		// TODO Auto-generated method stub
 		
 	}
-
 
 }

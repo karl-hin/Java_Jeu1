@@ -51,12 +51,15 @@ public class Massue extends Arme {
 	 * si le personnage est un Guerrier
 	 * alors on rajoute la force de cette Massue à son Atk de base (voir dans class Personnage)
 	 */
+
+
 	@Override
-	public void action(Personnage p) {
+	protected void action(Personnage p, Game game) {
 		if (p instanceof Guerrier) {
 			((Guerrier)p).setArme(this);
 		} else {
 			System.out.println("Dommage, la massue ne peut être à vous");
-		}		
+		}	
+		
 	}
 }

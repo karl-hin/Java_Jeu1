@@ -7,6 +7,7 @@ package fr.karl.jeu1;
 public abstract class Case {
 	/**
 	 * @param p c'est le personnage typé par la class Personnage
+	 * @param game 
 	 */
-	public abstract void action(Personnage p); // cette méthode sera utilisée pour les interactions du personnage avec les armes, potions ou ennemis		
+	protected abstract void action(Personnage p, Game game); // cette méthode sera utilisée pour les interactions du personnage avec les armes, potions ou ennemis		
 }

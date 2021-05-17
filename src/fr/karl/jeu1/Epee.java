@@ -51,12 +51,15 @@ public class Epee extends Arme{
 	 * si le personnage est un Guerrier
 	 * alors on rajoute la force de cette Epee à son Atk de base (voir dans class Personnage)
 	 */
+
+
 	@Override
-	public void action(Personnage p) {
+	protected void action(Personnage p, Game game) {
 		if (p instanceof Guerrier) {
 			((Guerrier)p).setArme(this);
 		} else {
 			System.out.println("Dommage, l'épée ne peut être à vous");
 		}
+		
 	}
 }

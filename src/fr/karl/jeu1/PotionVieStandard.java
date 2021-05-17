@@ -38,12 +38,10 @@ public class PotionVieStandard extends Case {
 	 * méthode hérité de la classe Case
 	 * on rajoute la vie de cette VieStandard à la vie du personnage
 	 */
+
 	@Override
-	public void action(Personnage p) {
+	protected void action(Personnage p, Game game) {
 		System.out.println("une petiite fiole pour vous soigner de 2 PV");
 		p.setVie(this.getVieStandard() + p.getVie());
-	}
-
-	
-	
+	}	
 }

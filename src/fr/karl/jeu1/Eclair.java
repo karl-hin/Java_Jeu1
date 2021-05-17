@@ -51,12 +51,14 @@ public class Eclair extends Sort{
 	 * si le personnage est un Magicien
 	 * alors on rajoute la force de cet Eclair à son Atk de base (voir dans class Personnage)
 	 */
+
 	@Override
-	public void action(Personnage p) {
+	protected void action(Personnage p, Game game) {
 		if (p instanceof Magicien) {
 			((Magicien)p).setSort(this);
 		} else {
 			System.out.println("Dommage, l'éclair ne peut être à vous");
-		}		
+		}	
+		
 	}
 }

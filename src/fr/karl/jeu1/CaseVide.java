@@ -34,8 +34,13 @@ public class CaseVide extends Case {
 		return "CaseVide [Reponse=" + Reponse + "]";
 	}
 
-	@Override
 	public void action(Personnage p) { //méthode hérité de la classe Case
 		System.out.println("Il ne reste plus rien sur cette case"); // quand le personnage tombe sur cette case il ne se passe rien
+	}
+
+	@Override
+	protected void action(Personnage p, Game game) {
+		// TODO Auto-generated method stub
+		
 	}	
 }

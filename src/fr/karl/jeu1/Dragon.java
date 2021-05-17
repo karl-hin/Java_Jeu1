@@ -1,17 +1,20 @@
 package fr.karl.jeu1;
 
+import java.util.Scanner;
+
 /**
- * @author karlo
- * <b>la classe Dragon hérite de la class Ennemies </b>
+ * @author karlo <b>la classe Dragon hérite de la class Ennemies </b>
  */
 public class Dragon extends Ennemies {
+	private Scanner clavier = new Scanner(System.in);
 
 	private String Nom;
 	private int Vie;
 	private int Atk;
 
 	/**
-	 *   constructeur par défaut dont le nom, la vie et l'attaque sont définit à l'intérieur
+	 * constructeur par défaut dont le nom, la vie et l'attaque sont définit à
+	 * l'intérieur
 	 */
 	public Dragon() {
 		this.Nom = "Dragon";
@@ -60,29 +63,39 @@ public class Dragon extends Ennemies {
 	}
 
 	/**
-	 * méthode hérité de la classe Case
-	 * cette méthode permet le combat entre le personnage et le dragon
+	 * méthode hérité de la classe Case cette méthode permet le combat entre le
+	 * personnage et le dragon
 	 */
 	@Override
-	public void action(Personnage p) {
-		this.setVie(this.Vie - p.getAtk()); // fait que le niveau de vie du dragon soit persistant
-		int resultPersoAtk = getVie();
-		p.setVie(p.getVie() - Atk);
-		int resultDragonAtk = p.getVie();
+	public void action(Personnage p, Game game) {
+		int choix = 1;
 		System.out.println("Combat contre un dragon");
 		System.out.println(toString());
-		System.out.println("personnage attaque");
-		if (resultPersoAtk > 0) {
-			System.out.println("le dragon vient de passer à " + resultPersoAtk + " de vie");
-			System.out.println("le dragon contre-attaque");
-		} else {
-			System.out.println("Vous avez tué le dragon");
+		System.out.println("1ère attaque");
+		while (choix == 1 && (getVie() > 0 && p.getVie() > 0)) {
+			this.setVie(this.getVie() - p.getAtk()); // fait que le niveau de vie du dragon soit persistant
+			
+			if (this.getVie() > 0) {
+				System.out.println("le dragon vient de passer à " + this.getVie() + " de vie");
+				System.out.println("le dragon contre-attaque");
+			} else {
+				System.out.println("Vous avez tué le dragon");
+				break;
+			}
+			if (p.getVie() > 0) {
+				p.setVie(p.getVie() - Atk);
+				System.out.println("Vous êtes à " + p.getVie() + " de vie");
+				System.out.println("Voulez-vous attaquer le dragon ou fuir?\n 1 pour attaquer\n 2 pour fuir");
+				choix = clavier.nextInt();
+			} else {
+				System.out.println("Vous êtes mort");
+				break;
+			}
 		}
-		if (resultDragonAtk > 0) {
-			System.out.println("Vous êtes à " + resultDragonAtk + " de vie");
-			System.out.println("IL S'ENFUIT!!!!!!");
+		if (choix == 2) {
+			System.out.println("Vous reculez à la case " + game.reculerJoueur() + " cases");
 		} else {
-			System.out.println("Vous êtes mort");
+			System.out.println("Fin du combat");
 		}
 	}
 }

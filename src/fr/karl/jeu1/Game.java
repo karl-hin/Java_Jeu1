@@ -71,7 +71,7 @@ public class Game {
 	public Personnage interaction(Personnage joueur, int positionJoueur) {
 		Case caseChoisit = listCase.get(positionJoueur);
 		System.out.println(caseChoisit.getClass());
-		caseChoisit.action(joueur);
+		caseChoisit.action(joueur, this);
 		this.supprimerEnnemi();
 		System.out.println(listCase.get(positionJoueur).getClass().getName());
 		return joueur;
@@ -164,6 +164,12 @@ public class Game {
 
 	public void replaceCase(int position) {
 		this.listCase.set(position, new CaseVide());
+	}
+	
+	public int reculerJoueur() {
+		int positionJoueur = lancerDes();
+		this.indexJoueur -= positionJoueur;
+		return this.indexJoueur;
 	}
 
 }
