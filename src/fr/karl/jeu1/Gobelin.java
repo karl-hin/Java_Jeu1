@@ -93,7 +93,7 @@ public class Gobelin extends Ennemies {
 			}
 		}
 		if (choix == 2) {
-			System.out.println("Vous reculez à la case " + game.reculerJoueur() + " cases");
+			System.out.println("Vous reculez à la case " + game.reculerJoueur());
 			
 		} else {
 			System.out.println("Fin du combat");

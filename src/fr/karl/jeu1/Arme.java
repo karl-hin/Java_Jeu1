@@ -5,7 +5,7 @@ package fr.karl.jeu1;
  * <b> Arme est la classe parent de la classe Epee, Massue et BatonGuerrier</b>
  * <b> elle possède 2 attribut </b>
  */
-public abstract class Arme extends Case{
+public abstract class Arme implements Case{
 	private String nom;
 	private int force;
 	

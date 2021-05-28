@@ -5,7 +5,7 @@ package fr.karl.jeu1;
  * <b> class CaseVide hérite de la class Case </b>
  * elle contient un seul attribut
  */
-public class CaseVide extends Case {
+public class CaseVide implements Case {
 	String Reponse = "Vous êtes sur une case vide";
 	
 	/**
@@ -39,7 +39,7 @@ public class CaseVide extends Case {
 	}
 
 	@Override
-	protected void action(Personnage p, Game game) {
+	public void action(Personnage p, Game game) {
 		// TODO Auto-generated method stub
 		
 	}	

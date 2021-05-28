@@ -1,10 +1,11 @@
 package fr.karl.jeu1;
 
+import com.mysql.connexion.BDDConnexion;
 import java.util.Scanner;
 
 /**
- * @author karlo
- * <b> la classe Menu s'occupe du choix utilisateur pour lancer le jeu ou quitter </b>
+ * @author karlo <b> la classe Menu s'occupe du choix utilisateur pour lancer le
+ *         jeu ou quitter </b>
  */
 public class Menu {
 	private Scanner clavier = new Scanner(System.in);
@@ -27,14 +28,16 @@ public class Menu {
 
 	/**
 	 * cette méthode permet au joueur de choisir un personnage Guerrier ou Magicien
+	 * 
 	 * @return le type de personnage choisit
 	 */
 	public Personnage choisirPersonnage() {
 		String nomJoueur;
 		int choix;
 		Personnage joueur = null;
-		System.out.print("Veuillez choisir le type de personnage\n" + "Taper 1 pour guerrier\n"
-				+ "Taper 2 pour magicien\n" + "Votre choix: ");
+		System.out.print(
+				"Veuillez choisir le type de personnage\n" + "Taper 1 pour guerrier\n" + "Taper 2 pour magicien\n"
+						+ "Taper 3 pour choisir un personnage parmi les deux proposé dans la BDD\n" + "Votre choix: ");
 
 		choix = clavier.nextInt();
 		clavier.nextLine();
@@ -63,40 +66,56 @@ public class Menu {
 			System.out.println("Votre personnage est un magicien, s'appelle " + joueur.getNom() + ", commence avec "
 					+ joueur.getVie() + " point de vie et " + joueur.getAtk() + " points d'attaque, "
 					+ joueur.toString());
+		} else if (choix == 3) {
+			BDDConnexion bdd = new BDDConnexion();
+			bdd.requestRecupere();
+			System.out.print("Veuillez choisir le personnage\n" + "Taper 1 pour jojo\n" + "Taper 2 pour croac\n"
+					+ "Votre choix: ");
+			choix = clavier.nextInt();
+			clavier.nextLine();
+			if (choix == 1) {
+				joueur = bdd.requestPerso1();				
+			} else if (choix == 2) {
+				joueur = bdd.requestPerso2();
+			}
 		}
 		return joueur;
 	}
 
 	/**
-	 * cette méthode permet des demandes utilisateur récurrentes pour le déroulé du jeu
-	 * Il choisit un personnage(ou il peut quitter le jeu), il lance le dé, 
+	 * cette méthode permet des demandes utilisateur récurrentes pour le déroulé du
+	 * jeu Il choisit un personnage(ou il peut quitter le jeu), il lance le dé,
 	 */
 	public void playGame() {
 		int positionJoueur;
 		Game jouerUnTour = new Game();
 		int choixRejouer = 0;
-		
+
 		do {
 			Personnage joueurChoisit = choisirPersonnage();// retourne le joueur choisit
 			positionJoueur = jouerUnTour.getIndexJoueur();
 			System.out.println("Vous commencez à la case: " + positionJoueur);
-			while (positionJoueur < jouerUnTour.getNbCase()  && joueurChoisit.getVie() > 0) {			
+			while (positionJoueur < jouerUnTour.getNbCase() && joueurChoisit.getVie() > 0) {
 				positionJoueur = jouerUnTour.avancerJoueur();
-				System.out.println("Vous êtes à la case " + positionJoueur + "/" + jouerUnTour.getNbCase());
+
 				try {
 					if (positionJoueur >= jouerUnTour.getNbCase()) {
 						PersonnageHorsPlateauException e = new PersonnageHorsPlateauException();
 						throw e;
 					} else {
-						joueurChoisit = jouerUnTour.interaction(joueurChoisit, positionJoueur); // je lance l'effet de la case
+						// System.out.println("Vous êtes à la case " + positionJoueur + "/" +
+						// jouerUnTour.getNbCase());
+						joueurChoisit = jouerUnTour.interaction(joueurChoisit, positionJoueur); // je lance l'effet de
+																								// la case
 						System.out.println(joueurChoisit.toString());
 					}
 				} catch (PersonnageHorsPlateauException error) {
 					System.out.println(error.getMessage());
 					positionJoueur = 64;
-				}				
+				}
+				System.out.println("Vous êtes à la case " + positionJoueur + "/" + jouerUnTour.getNbCase());
 			}
-			//System.out.println("Vous avez gagné!");
+			// System.out.println("Vous avez gagné!");
 			choixRejouer = jouerUnTour.rejouer();
 		} while (choixRejouer == 0);// fin de la boucle
 	}

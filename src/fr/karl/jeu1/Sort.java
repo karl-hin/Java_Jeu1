@@ -1,6 +1,6 @@
 package fr.karl.jeu1;
 
-public abstract class Sort extends Case{
+public abstract class Sort implements Case{
 	private String nom;
 	private int force;
 	
@@ -31,6 +31,11 @@ public abstract class Sort extends Case{
 	@Override
 	public String toString() {
 		return "Sort [nom=" + nom + ", force=" + force + "]";
+	}
+
+	public void action(Personnage p, Game game) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

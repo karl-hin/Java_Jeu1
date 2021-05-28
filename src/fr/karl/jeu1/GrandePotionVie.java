@@ -4,7 +4,7 @@ package fr.karl.jeu1;
  * @author karlo
  * <b>la classe GrandePotionVie hérite de la classe Case </b>
  */
-public class GrandePotionVie extends Case {
+public class GrandePotionVie implements Case {
 	private int grandePotionVie;
 	
 	/**
@@ -40,7 +40,7 @@ public class GrandePotionVie extends Case {
 	 */
 
 	@Override
-	protected void action(Personnage p, Game game) {
+	public void action(Personnage p, Game game) {
 		System.out.println("une grande fiole pour vous soigner de 5 PV");
 		p.setVie(this.getGrandePotionVie() + p.getVie());	
 		

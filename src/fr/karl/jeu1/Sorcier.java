@@ -85,7 +85,7 @@ public class Sorcier extends Ennemies {
 			if (p.getVie() > 0) {
 				p.setVie(p.getVie() - Atk);
 				System.out.println("Vous êtes à " + p.getVie() + " de vie");
-				System.out.println("Voulez-vous attaquer le dragon ou fuir?\n 1 pour attaquer\n 2 pour fuir");
+				System.out.println("Voulez-vous attaquer le sorcier ou fuir?\n 1 pour attaquer\n 2 pour fuir");
 				choix = clavier.nextInt();
 			} else {
 				System.out.println("Vous êtes mort");
@@ -93,7 +93,7 @@ public class Sorcier extends Ennemies {
 			}
 		}
 		if (choix == 2) {
-			System.out.println("Vous reculez à la case " + game.reculerJoueur() + " cases");
+			System.out.println("Vous reculez à la case " + game.reculerJoueur());
 		} else {
 			System.out.println("Fin du combat");
 		}

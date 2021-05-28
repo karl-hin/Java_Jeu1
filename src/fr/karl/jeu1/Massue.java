@@ -54,7 +54,7 @@ public class Massue extends Arme {
 
 
 	@Override
-	protected void action(Personnage p, Game game) {
+	public void action(Personnage p, Game game) {
 		if (p instanceof Guerrier) {
 			((Guerrier)p).setArme(this);
 		} else {

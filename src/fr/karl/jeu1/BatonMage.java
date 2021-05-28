@@ -2,7 +2,7 @@ package fr.karl.jeu1;
 
 /**
  * @author karlo
- * <b>la classe BatonMage hérite de la classe Arme </b>
+ * <b>le BatonMage initialise l'arme à zero </b>
  */
 public class BatonMage extends Sort {
 	private String nom;
@@ -46,8 +46,7 @@ public class BatonMage extends Sort {
 		return "BatonMage [nom=" + nom + ", force=" + force + "]";
 	}
 
-	@Override
-	protected void action(Personnage p, Game game) {
+	public void action(Personnage p, Game game) {
 		// TODO Auto-generated method stub
 		
 	}

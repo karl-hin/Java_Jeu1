@@ -3,11 +3,11 @@ package fr.karl.jeu1;
 /**
  * @author karlo <b>la class Ennemies hérite de la class Case </b>
  */
-public class Ennemies extends Case {
+public class Ennemies implements Case {
 
-	private String Nom;
-	private int Vie;
-	private int Atk;
+	private String nom;
+	private int vie;
+	private int atk;
 
 	public Ennemies() {
 	}
@@ -18,42 +18,42 @@ public class Ennemies extends Case {
 	 * @param atkEnnemies c'est l'attaque de l'ennemi
 	 */
 	public Ennemies(String nomEnnemies, int vieEnnemies, int atkEnnemies) {
-		this.Nom = nomEnnemies;
-		this.Vie = vieEnnemies;
-		this.Atk = atkEnnemies;
+		this.nom = nomEnnemies;
+		this.vie = vieEnnemies;
+		this.atk = atkEnnemies;
 	}
 
 	public String getNom() {
-		return Nom;
+		return nom;
 	}
 
 	public void setNom(String nom) {
-		Nom = nom;
+		nom = nom;
 	}
 
 	public int getVie() {
-		return Vie;
+		return vie;
 	}
 
 	public void setVie(int vie) {
-		Vie = vie;
+		vie = vie;
 	}
 
 	public int getAtk() {
-		return Atk;
+		return atk;
 	}
 
 	public void setAtk(int atk) {
-		Atk = atk;
+		atk = atk;
 	}
 
 	@Override
 	public String toString() {
-		return "Ennemies [Nom=" + Nom + ", Vie=" + Vie + ", Atk=" + Atk + "]";
+		return "Ennemies [Nom=" + nom + ", Vie=" + vie + ", Atk=" + atk + "]";
 	}
 
 	@Override
-	protected void action(Personnage p, Game game) {
+	public void action(Personnage p, Game game) {
 		// TODO Auto-generated method stub
 		
 	}

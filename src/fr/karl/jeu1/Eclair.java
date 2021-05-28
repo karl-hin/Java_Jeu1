@@ -53,7 +53,7 @@ public class Eclair extends Sort{
 	 */
 
 	@Override
-	protected void action(Personnage p, Game game) {
+	public void action(Personnage p, Game game) {
 		if (p instanceof Magicien) {
 			((Magicien)p).setSort(this);
 		} else {

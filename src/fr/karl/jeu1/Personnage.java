@@ -10,7 +10,6 @@ public abstract class Personnage {
 	private int vie;
 	private int atk;
 	int baseAtk;
-	int baseVie;
 	private String image;
 	private String defense;
 	
@@ -48,7 +47,6 @@ public abstract class Personnage {
 		this.nom = personnageNom;
 		this.image = personnageImage;
 		this.vie = personnageVie;
-		this.baseVie = personnageVie;
 		this.atk = personnageAtk;
 		this.defense = personnageDefense;
 		this.baseAtk = personnageAtk;
